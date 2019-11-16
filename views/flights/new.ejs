@@ -22,7 +22,7 @@
         <input type="text" name="flightNum">
     </label><br>
     <label>Departure:      
-        <input type="datetime-local" name="departs" value="`${default}`">
+        <input type="date" name="departs" required pattern="\d{4}-\d{2}-\d{2}">
     </label><br>
     <input type="submit" value="Add Flight">
     </form>
