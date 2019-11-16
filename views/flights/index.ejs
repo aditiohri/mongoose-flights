@@ -14,16 +14,16 @@
         <thead>
             <th>Airline</th>
             <th>Flight Number</th>
-            <th>Departure</th>
+            <th>Departs</th>
         </thead>
         <tbody>
-            <tr>
-            <%= flights.forEach(function(flight) { %>
-                <td><%= flight.airline %></td>
-                <td><%= flight.flightNum %></td>
-                <td><%= flight.departure %></td>
-                <%= }) %>
-            </tr>
+            <% flights.forEach(function(flight){ %>
+                <tr>
+                    <td><%= flight.airline %></td>
+                    <td><%= flight.flightNum %></td>
+                    <td><%= flight.departs %></td>
+                </tr>
+                <% }) %>
         </tbody>
     </table>
     <a href="/flights/new">Add Flight</a>
