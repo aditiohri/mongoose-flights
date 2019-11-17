@@ -23,5 +23,7 @@ function create(req, res) {
 
 function newFlight(req, res) {
     var flight = new Flight(req.body);
-    res.render('flights/new');
+    res.render('flights/new', {
+        default: flight.departs.default
+    });
 }
