@@ -51,13 +51,21 @@
                                 <input type="submit" value="Add Arrival">
                         </form>
                     <section>
+                        <h3> Tickets </h3>
                    <table>
-                  <tr>
-                     Tickets
-                     <td>
-                         
-                     </td> 
-                  </tr>     
+                       <thead>
+                        <th>Seat</th>
+                        <th>Price</th>
+                       </thead>
+                       <tbody>
+                        <tr>
+                            <% tickets.forEach(function(ticket){ %>
+                           <td><%= ticket.seat %></td>
+                           <td><%= ticket.price %></td>
+                        </tr>  
+                            <% })%>   
+                            <a href="/flights/<%= flight._id %>/tickets/new">Add a new ticket</a>
+                       </tbody>
                    </table>
                     </section>
         <a href="/flights/new">Add Flight</a> | <a href="/flights">All Flights</a>
