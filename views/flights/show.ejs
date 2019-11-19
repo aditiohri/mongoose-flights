@@ -15,9 +15,10 @@
                             <th>Flight Number</th>
                             <th>Departs</th>
                             <th>Departing Airport</th>
-                            <th>Destination</th>
                             <th>Arrival Time</th>
-                            <th>Arrival Airport</th>
+                            <th>Destination</th>
+
+                           
                         </thead>
                         <tbody>  
                             <tr>
@@ -26,12 +27,29 @@
                                     <td><%= flight.departs %></td>
                                     <td><%= flight.airport %></td>
                                     <% flight.destinations.forEach(function(place) { %>
+                                       <div>
                                         <td> <%= place.arrival %> </td>
-                                    <td><%= place.airport %></td>
+                                    <td><%= place.airport %></td> </div>
                                    <% }) %>
                                 </tr>
-                               
+    
                         </tbody>
+                        <h3>Update Arrival Details</h3>
+                        <form id="add-arrival-form" method="POST" action="/flights/<%= flight._id %>?_method=PUT">
+                            <label>Airport:
+                                    <select name="airport">
+                                        <option value="AUS">Austin</option>
+                                        <option value="DAL">Dallas</option>
+                                        <option value="LAX">Los Angeles</option>
+                                        <option value="SAN">San Diego</option>
+                                        <option value="SEA">Seattle</option>
+                                    </select>
+                                </label><br>
+                                <label>Arrival Date
+                                    <input type="datetime-local" name="arrival">
+                                </label>
+                                <input type="submit" value="Add Arrival">
+                        </form>
                     <section>
                    
                     </section>
