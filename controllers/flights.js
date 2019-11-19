@@ -1,11 +1,12 @@
 var Flight = require('../models/flight');
+var Ticket = require('../models/ticket');
 
 module.exports = {
     index,
     create,
     new: newFlight,
     show,
-    update
+    update,
 }
 
 function index(req, res) {
@@ -27,9 +28,15 @@ function create(req, res) {
 }
 
 function show(req, res) {
+    console.log('hit');
     Flight.findById(req.params.id, function(err, flight) {
-        console.log('FLIGHT: ', flight);
-        res.render('flights/show', {title: ` Flight # ${flight._id}`, flight});
+        console.log(flight);
+        console.log(Ticket);
+        Ticket.find({flight: flight._id}, function (err, tickets) {
+            console.log(err);
+            console.log('FLIGHT: ', flight);
+            res.render('flights/show', {title: `Flight # ${flight._id}`, flight, tickets});
+        });
     });
 };
 
@@ -59,3 +66,4 @@ function newFlight(req, res) {
 //     var destDate = `${dt.getFullYear()}-${dt.getMonth() + 1}-${dt.getDate()}T${dt.getHours().toString().padStart(2, '0')}:${dt.getMinutes().toString().padStart(2, '0')}`;
 //     res.render('flights/new', {destDate});
 // }
+

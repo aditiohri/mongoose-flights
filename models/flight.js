@@ -1,20 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ticketSchema = new Schema({
-    seat: {
-        type: String,
-        match: /[A-F][1-9]\d?/
-    },
-    price: {
-        type: Number,
-        min: 0
-    },
-    flight: {
-        type: Schema.Types.ObjectId,
-        ref: 'Flight'
-    }
-}, {timestamps: true});
 
 const destinationSchema = new Schema({
     airport: {
@@ -46,8 +32,7 @@ const flightSchema = new Schema({
         enum: ['AUS', 'DAL', 'LAX', 'SAN', 'SEA'],
         default: 'SAN'
     },
-    destinations: [destinationSchema],
-    ticket: [ticketSchema]
+    destinations: [destinationSchema]
 }, {timestamps: true});
 
 module.exports = mongoose.model('Flight', flightSchema);
