@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Create New Flight</title>
+    <title><%= title %></title>
 </head>
 <body>
     <h1>Mongoose Flights</h1>
     <h2>Enter a New Flight</h2>
     <form action="/flights" method="POST">
+    <label>Airport:
+        <select name="airport">
+            <option value="AUS">Austin</option>
+            <option value="DAL">Dallas</option>
+            <option value="LAX">Los Angeles</option>
+            <option value="SAN">San Diego</option>
+            <option value="SEA">Seattle</option>
+        </select>
+    </label><br>
     <label>Airline:
         <select name="airline">
             <option value="American">American</option>
@@ -22,7 +31,7 @@
         <input type="text" name="flightNum">
     </label><br>        
     <label>Departure:      
-        <input type="datetime-local" name="departs" value="yyyy-MM-ddThh:mm">
+        <input type="datetime-local" name="departs">
     </label><br>
     <input type="submit" value="Add Flight">
     </form>
