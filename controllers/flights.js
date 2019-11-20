@@ -11,7 +11,7 @@ module.exports = {
 
 function index(req, res) {
     Flight.find({}, function(err, flights) {
-        res.render('flights', {flights});
+        res.render('flights', {title: 'All Flights', flights});
     });
 }
 
@@ -21,7 +21,7 @@ function create(req, res) {
     }
     var flight = new Flight(req.body);
     flight.save(function(err) {
-        if (err) return res.render('flights/new');
+        if (err) return res.render('flights/new', {title: 'New Flight'});
         console.log(flight);
         res.redirect('flights');
     });

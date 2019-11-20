@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title><%= title %></title>
-</head>
-<body>
-    <h1>Mongoose Flights</h1>
+<%- include('../partials/header') %>
+
     <h2>Enter a New Flight</h2>
     <form action="/flights" method="POST">
     <label>Airport:
@@ -35,9 +26,5 @@
     </label><br>
     <input type="submit" value="Add Flight">
     </form>
-    <p>
-        <a href="/flights">See All Flights</a>
 
-    </p>
-</body>
-</html>
+    <%- include('../partials/footer') %>
