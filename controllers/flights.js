@@ -28,13 +28,8 @@ function create(req, res) {
 }
 
 function show(req, res) {
-    console.log('hit');
     Flight.findById(req.params.id, function(err, flight) {
-        console.log(flight);
-        console.log(Ticket);
         Ticket.find({flight: flight._id}, function (err, tickets) {
-            console.log(err);
-            console.log('FLIGHT: ', flight);
             res.render('flights/show', {title: `Flight # ${flight._id}`, flight, tickets});
         });
     });
